@@ -12,12 +12,13 @@ jobs:
       env:
         ID: ${{ secrets.DOCKER_ID }}
         PASSWD: ${{ secrets.DOCKER_PASSWD }}
+        ID_KEY: fish895623
         NAME: newproj
       run: | 
         docker login -u $ID -p $PASSWD
         echo $GITHUB_WORKSPACE $GITHUB_EVENT_NAME $GITHUB_REPOSITORY
-        docker build . --file Dockerfile --tag $NAME:$GITHUB_RUN_NUMBER
-        docker push $NAME:$GITHUB_RUN_NUMBER
+        docker build . --file Dockerfile --tag $ID_KEY/$NAME:$GITHUB_RUN_NUMBER
+        docker push $ID_KEY/$NAME:$GITHUB_RUN_NUMBER
     - name: 123bb
       run: |
           echo a
