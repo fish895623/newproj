@@ -17,7 +17,7 @@ jobs:
         docker login -u $ID -p $PASSWD
         echo $GITHUB_WORKSPACE $GITHUB_EVENT_NAME $GITHUB_REPOSITORY
         docker build . --file Dockerfile --tag $NAME:$GITHUB_RUN_NUMBER
-        docker push --tag $NAME:$GITHUB_RUN_NUMBER
+        docker push $NAME:$GITHUB_RUN_NUMBER
     - name: 123bb
       run: |
           echo a
