@@ -13,6 +13,7 @@ jobs:
     - name: Build the Docker image
       env:
         SUPER_SECRET: ${{ secrets.DOCKER_ID }}
+        PASSWD: ${{ secrets.DOCKER_PASSWD }}  
       run: | 
-        echo $SUPER_SECRET
+        docker login -u $SUPER_SECRET -p $PASSWD
 # docker build . --file Dockerfile --tag my-image-name:$(date +%s)
