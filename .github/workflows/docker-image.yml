@@ -11,9 +11,18 @@ jobs:
     - name: Build the Docker image
       env:
         ID: ${{ secrets.DOCKER_ID }}
-        PASSWD: ${{ secrets.DOCKER_PASSWD }}  
+        PASSWD: ${{ secrets.DOCKER_PASSWD }}
+        NAME: newproj
+        date: date +%s
       run: | 
         docker login -u $ID -p $PASSWD
         echo $GITHUB_WORKSPACE $GITHUB_EVENT_NAME $GITHUB_REPOSITORY
+        docker build . --file Dockerfile --tag $NAME:$date
+        docker push --tag $NAME:$date
+    - name: 123bb
+      run: |
+          echo a
+          echo b
+    
 # docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 # 
