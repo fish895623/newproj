@@ -16,6 +16,6 @@ jobs:
         PASSWD: ${{ secrets.DOCKER_PASSWD }}  
       run: | 
         docker login -u $ID -p $PASSWD
-        echo $GITHUB_WORKSPACE
+        echo $GITHUB_WORKSPACE $GITHUB_EVENT_NAME $GITHUB_REPOSITORY
 # docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 # 
