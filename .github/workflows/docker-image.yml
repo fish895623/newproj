@@ -15,4 +15,4 @@ jobs:
         SUPER_SECRET: ${{ secrets.DOCKER_ID }}
       run: | 
         docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-        echo $env:SUPER_SECRET
+        echo $DOCKER_ID
